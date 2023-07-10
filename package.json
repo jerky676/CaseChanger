@@ -2,7 +2,12 @@
   "name": "vscode-case-changer-context",
   "displayName": "CaseChangerContextMenu",
   "description": "Change the case of text using cmds or context menu",
-  "version": "1.0.2",
+  "version": "1.0.3",
+  "icon": "images/logo.png",
+  "galleryBanner": {
+      "color": "#110580",
+      "theme": "dark"
+  },
   "publisher": "jerky676",
   "license": "MIT",
   "repository": {
