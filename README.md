@@ -1,71 +1,49 @@
-# casechanger README
+# CaseChanger
 
-A Visual Studio Code extensions to use 
+![CaseChanger Logo](images/logo.png)
+
+CaseChanger is a Visual Studio Code extension that allows you to quickly convert text between different case styles. With CaseChanger, you can easily switch between snake_case, camelCase, PascalCase, and kebab-case formats, making it convenient when working with different naming conventions in your code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Convert text selections or entire documents to various case styles.
+- Supports snake_case, camelCase, PascalCase, and kebab-case.
+- Configurable keyboard shortcuts for quick conversions.
+- Context menu to change case when text selected
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Launch Visual Studio Code.
+2. Go to the Extensions view (Ctrl+Shift+X).
+3. Search for "CaseChanger" by "jerky676".
+4. Click on the "Install" button to install the extension.
+5. Restart Visual Studio Code (if required).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
 
-## Requirements
+1. Select the text you want to convert or place the cursor within the word you want to change.
+2. Right-click and choose "Change Case" from the context menu, or use the keyboard shortcut.
+3. Select the desired case style from the options provided.
+4. The selected text or word will be converted to the chosen case style.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Configuration
 
-## Extension Settings
+You can customize the keyboard shortcuts used by CaseChanger by following these steps:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Open the Keyboard Shortcuts editor in Visual Studio Code (File > Preferences > Keyboard Shortcuts or Ctrl+K Ctrl+S).
+2. Search for "casechanger.convertCase" in the search bar.
+3. Click on the pencil icon to the left of the shortcut you want to change.
+4. Enter your preferred keyboard shortcut combination.
+5. Save the changes.
 
-For example:
+## Contributing
 
-This extension contributes the following settings:
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/jerky676/CaseChanger).
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## License
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+This extension is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+If you find this extension helpful, consider leaving a ⭐️ on the [GitHub repository](https://github.com/jerky676/CaseChanger). Happy coding!
