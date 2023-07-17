@@ -26,23 +26,21 @@ jobs:
         with:
           node-version: 18
 
+      - name: Setup Git config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Determine version type
-        id: determine_version
-        run: |
-          echo "::set-output name=version_type::${{ github.event.inputs.version_type }}"
-
       - name: Increment version
         run: |
-          npm version patch
+          npm version --git-tag-version ${{ github.event.inputs.version_type }}
           echo "New version: $(node -p "require('./package.json').version")"
 
       - name: Commit changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git commit -a -m "Bump version to $(node -p "require('./package.json').version")"
           git tag -a -m "Version $(node -p "require('./package.json').version")" $(node -p "require('./package.json').version")
           git push origin --follow-tags
