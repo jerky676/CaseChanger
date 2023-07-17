@@ -3,7 +3,7 @@ name: Build and Publish VS Code Extension
 on:
   push:
     branches:
-      - main
+      - publish
     paths:
       - 'src'
       - 'package.json'
