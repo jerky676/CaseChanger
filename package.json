@@ -5,8 +5,8 @@
   "version": "1.0.4",
   "icon": "images/logo.png",
   "galleryBanner": {
-      "color": "#110580",
-      "theme": "dark"
+    "color": "#110580",
+    "theme": "dark"
   },
   "publisher": "jerky676",
   "license": "MIT",
