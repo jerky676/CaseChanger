@@ -6,4 +6,27 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+## [1.0.6]
+
+- Added: Chnage log
+
+## [1.0.5]
+
+- Changed: Dev dependancy to newer versions
+- Added: Release process
+
+## [1.0.4]
+
+- Added: Publish to openvsx
+
+## [1.0.3]
+
+- Fixed: Icon issues
+
+## [1.0.2]
+
+- Added: Logo.png
+
+## [1.0.0]
+
+Initial release!
