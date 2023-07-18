@@ -44,7 +44,7 @@ function lower(text:string){
   return text.toLowerCase();
 }
 
-function changeTextCase(caseType: string) {
+export function changeTextCase(caseType: string) {
   console.log(`run case type ${caseType}`);
   const editor = vscode.window.activeTextEditor;
   if (editor) {
