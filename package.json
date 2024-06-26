@@ -37,8 +37,8 @@
         "title": "Change to camelCase"
       },
       {
-        "command": "extension.changeCase.param",
-        "title": "Change to param-case"
+        "command": "extension.changeCase.kebab",
+        "title": "Change to kebab-case"
       },
       {
         "command": "extension.changeCase.pascal",
@@ -55,10 +55,6 @@
       {
         "command": "extension.changeCase.dot",
         "title": "Change to dot.case"
-      },
-      {
-        "command": "extension.changeCase.header",
-        "title": "Change to Header-Case"
       },
       {
         "command": "extension.changeCase.none",
@@ -95,7 +91,7 @@
           "group": "1_changeCase"
         },
         {
-          "command": "extension.changeCase.param",
+          "command": "extension.changeCase.kebab",
           "group": "1_changeCase"
         },
         {
@@ -112,10 +108,6 @@
         },
         {
           "command": "extension.changeCase.dot",
-          "group": "1_changeCase"
-        },
-        {
-          "command": "extension.changeCase.header",
           "group": "1_changeCase"
         },
         {
@@ -156,9 +148,9 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.46.0",
-    "glob": "^8.1.0",
-    "mocha": "^10.2.0",
-    "typescript": "^5.2.2",
+    "glob": "^10.4.2",
+    "mocha": "^10.5.1",
+    "typescript": "^5.5.2",
     "@vscode/test-electron": "^2.3.4"
   },
   "dependencies": {
