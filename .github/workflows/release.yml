@@ -48,6 +48,9 @@ jobs:
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "New version: ${VERSION}"
 
+      - name: Update Change Log
+        run: npx auto-changelog --commit-limit false --stdout > CHANGELOG.md
+
       - name: Fast-forward merge publish branch to main
         run: |
           git push --force origin +${VERSION}~0:${RELEASE_BRANCH}
