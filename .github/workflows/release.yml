@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -34,7 +34,6 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          echo "git status"
           git status
 
       - name: Install dependencies
@@ -43,17 +42,23 @@ jobs:
       - name: Increment version
         run: |
           npm version --git-tag-version ${{ github.event.inputs.version_type }} -m "Release version to v%s"
-          git push --follow-tags
           VERSION="v$(node -p "require('./package.json').version")"
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "New version: ${VERSION}"
 
       - name: Update Change Log
-        run: npx auto-changelog --commit-limit false --stdout > CHANGELOG.md
+        run: |
+          npx auto-changelog --commit-limit false --stdout > CHANGELOG.md
+          git add CHANGELOG.md
+          git commit --amend --no-edit
+
+      - name: Push changes
+        run: |
+          git push --follow-tags
 
       - name: Fast-forward merge publish branch to main
         run: |
-          git push --force origin +${VERSION}~0:${RELEASE_BRANCH}
+          git push --force-with-lease origin +${VERSION}~0:${RELEASE_BRANCH}
 
   buildpublish:
     runs-on: ubuntu-latest
@@ -61,14 +66,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: release
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm ci
