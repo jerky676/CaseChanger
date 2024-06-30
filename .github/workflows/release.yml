@@ -12,9 +12,6 @@ on:
           - minor
           - major
 
-env:
-  RELEASE_BRANCH: release
-
 permissions: write-all
 
 jobs:
@@ -24,6 +21,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -41,24 +41,26 @@ jobs:
 
       - name: Increment version
         run: |
-          npm version --git-tag-version ${{ github.event.inputs.version_type }} -m "Release version to v%s"
+          npm version --no-git-tag-version ${{ github.event.inputs.version_type }} -m "Release version to v%s"
           VERSION="v$(node -p "require('./package.json').version")"
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
           echo "New version: ${VERSION}"
+          git add package.json
+          git add package-lock.json
 
       - name: Update Change Log
+        env:
+          CHANGE_LOG_FILE: "CHANGELOG.md"
         run: |
-          npx auto-changelog --commit-limit false --stdout > CHANGELOG.md
-          git add CHANGELOG.md
-          git commit --amend --no-edit
+          npx auto-changelog --commit-limit false -p --output ${CHANGE_LOG_FILE}
+          git add ${CHANGE_LOG_FILE}
 
-      - name: Push changes
+      - name: Push commit and tag
         run: |
-          git push --follow-tags
-
-      - name: Fast-forward merge publish branch to main
-        run: |
-          git push --force-with-lease origin +${VERSION}~0:${RELEASE_BRANCH}
+          git commit -m "Release version ${VERSION}"
+          git push
+          git tag ${VERSION}
+          git push origin ${VERSION}
 
   buildpublish:
     runs-on: ubuntu-latest
@@ -68,7 +70,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: release
+          ref: main
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
