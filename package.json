@@ -151,7 +151,7 @@
     "glob": "^10.4.2",
     "mocha": "^10.5.1",
     "typescript": "^5.5.2",
-    "@vscode/test-electron": "^2.3.4"
+    "@vscode/test-electron": "^2.4.1"
   },
   "dependencies": {
     "change-case": "^4.1.2"
