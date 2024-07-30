@@ -147,7 +147,7 @@
     "@types/node": "20.14.11",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^9.7.0",
+    "eslint": "^9.8.0",
     "glob": "^10.4.2",
     "mocha": "^10.7.0",
     "typescript": "^5.5.4",
