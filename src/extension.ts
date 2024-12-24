@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { EOL } from 'os';
 import { transformCase, caseTypes } from './transformCase';
+import { Console } from 'console';
 
 
 const extensionNamespace = 'extension.changeCase';
@@ -28,13 +29,19 @@ async function changeTextCase(caseType: string) {
           const range = new vscode.Range(selection.start, selection.end);
 
           for (let lineIndex = range.start.line; lineIndex <= range.end.line; lineIndex++) {
-            const lineText = document.lineAt(lineIndex).text;
-            const start = document.lineAt(lineIndex).range.start.character;
-            const end = document.lineAt(lineIndex).range.end.character;
-            const range = new vscode.Range(lineIndex, start, lineIndex, end);
+            let lineStart = lineIndex === range.start.line ? range.start.character: document.lineAt(lineIndex).range.start.character;
+            let lineEnd = lineIndex === range.end.line ? range.end.character : document.lineAt(lineIndex).range.end.character;
+
+            console.log(`lineStart:${lineStart} `);
+            console.log(`lineEnd: ${lineEnd}`);
+
+            const lineRange = new vscode.Range(lineIndex, lineStart, lineIndex, lineEnd);
+            const lineText = document.getText(lineRange);
             const transformedText = transformCase(lineText, caseType);
 
-            editBuilder.replace(range, transformedText);
+            console.log(`linetext:${lineText}`);
+
+            editBuilder.replace(lineRange, transformedText);
           }
       });
     }

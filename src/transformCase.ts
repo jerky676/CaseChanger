@@ -37,6 +37,7 @@ const changeCaseFunctions = [
     { name: caseTypes.snake, func:cases.snakeCase},
 ];
   
+
   
 export function transformCase(selectedText:string, caseType:string){
     const changeCaseFunction = changeCaseFunctions.filter(c => c.name === caseType)[0];
@@ -44,6 +45,10 @@ export function transformCase(selectedText:string, caseType:string){
     if (!changeCaseFunction) {
         throw new Error(`Case type ${caseType} not found`);
     }
+
+    const leadingWhitespace = selectedText.match(/^[ \t]*/)?.[0] || '';
+    const trailingWhitespace = selectedText.match(/[ \t]*$/)?.[0] || '';
+    const convertedText = changeCaseFunction.func(selectedText.trim());
     
-    return changeCaseFunction.func(selectedText);
+    return `${leadingWhitespace}${convertedText}${trailingWhitespace}`;
 }
