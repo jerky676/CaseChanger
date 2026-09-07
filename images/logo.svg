@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b0aa6"/>
+      <stop offset="1" stop-color="#110580"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="240" height="240" rx="52" fill="url(#bg)"/>
+
+  <!-- Case Changer: upper-case A next to lower-case a -->
+  <text x="124" y="180" text-anchor="middle"
+        font-family="DejaVu Sans, Verdana, Arial, sans-serif"
+        font-weight="bold" font-size="150"
+        letter-spacing="4">
+    <tspan fill="#ffffff">A</tspan><tspan fill="#8ea2ff">a</tspan>
+  </text>
+</svg>
